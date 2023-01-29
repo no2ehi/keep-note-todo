@@ -2,6 +2,7 @@ import { NavLink, useLocation  } from 'react-router-dom';
 import { ReactComponent as Arrow } from '../../assets/arrow.svg';
 import { ReactComponent as Trash } from '../../assets/trash.svg';
 import { ReactComponent as Edit } from '../../assets/edit.svg';
+import ModalLabel from '../Utilities/ModalLabel';
 
 import { useState } from 'react';
 
@@ -35,9 +36,16 @@ const Menu = () => {
     const classLinkActive = "text-rose-600 bg-violet-100 border-r-4 border-rose-500 ";
 
     const [isLablesOpen, setIsLabelsOpen ] = useState(true);
+    const [modalLabelIsShown, setModalLabelIsShown] = useState(false);
 
     return(
         <div className="flex- flex-col w-1/5 fixed bg-slate-100 h-screen dark:bg-slate-800 shadow">
+            { modalLabelIsShown && (
+                <ModalLabel
+                    btnText="Create"
+                    title="Create new Label"
+                />
+            )}
 
             <h1 className="flex justify-center pt-10 text-slate-600 font-bold text-xl">Keep Note Todo</h1>
 
@@ -84,7 +92,9 @@ const Menu = () => {
                         </li>
                     </ul>
 
-                    <button className="px-3 py-1 border-slate-300 border-2 ml-9 mt-2 rounded-md border-dashed hover:text-violet-500">
+                    <button
+                        onClick={ () => setModalLabelIsShown(true)}
+                     className="px-3 py-1 border-slate-300 border-2 ml-9 mt-2 rounded-md border-dashed hover:text-violet-500">
                         + New
                     </button>
                     
