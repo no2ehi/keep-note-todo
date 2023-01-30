@@ -3,6 +3,7 @@ import { ReactComponent as Arrow } from '../../assets/arrow.svg';
 import { ReactComponent as Trash } from '../../assets/trash.svg';
 import { ReactComponent as Edit } from '../../assets/edit.svg';
 import ModalLabel from '../Utilities/ModalLabel';
+import ModalConfirm from '../Utilities/ModalConfirm';
 
 import { useState } from 'react';
 
@@ -37,13 +38,26 @@ const Menu = () => {
 
     const [isLablesOpen, setIsLabelsOpen ] = useState(true);
     const [modalLabelIsShown, setModalLabelIsShown] = useState(false);
+    const [modalIsShown, setModalIsShown] = useState(false);
+
+    const closeModalLabelHandler = () => {
+        setModalLabelIsShown(false);
+    }
 
     return(
         <div className="flex- flex-col w-1/5 fixed bg-slate-100 h-screen dark:bg-slate-800 shadow">
             { modalLabelIsShown && (
                 <ModalLabel
+                    onClose={closeModalLabelHandler}
                     btnText="Create"
                     title="Create new Label"
+                />
+            )}
+
+            {   modalIsShown && (
+                <ModalConfirm
+                    onClose={() => setModalIsShown(false)}
+                    text="This Label and All its task will be deleted."
                 />
             )}
 
@@ -82,10 +96,14 @@ const Menu = () => {
                                 className="hover:text-rose-600 transition"
                                 > Learning</NavLink>
                             <div className="ml-auto">
-                                <button title="edit directory name">
-                                    <Edit className="w-5 h-5 mr-2"></Edit>
+                                <button 
+                                    onClick={() => setModalLabelIsShown(true)}
+                                    title="edit directory name">
+                                    <Edit
+                                        className="w-5 h-5 mr-2"></Edit>
                                 </button>
-                                <button>
+                                <button
+                                    onClick={() => setModalIsShown(true)}>
                                     <Trash className="w-5 h-5 mr-2"></Trash>
                                 </button>
                             </div>

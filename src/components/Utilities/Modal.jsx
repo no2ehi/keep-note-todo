@@ -5,11 +5,21 @@ import { ReactComponent as SvgX } from "../../assets/x.svg";
 
 const ModalContent = ({ children, onClose, title }) => {
 
+    const closeModalHandler = (e) => {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
+    }
+
     return(
-        <div className="w-full h-full fixed grid place-items-center bg-slate-600/[.2] px-2 z-40">
+        <div className="w-full h-full fixed grid place-items-center bg-slate-600/[.2] px-2 z-40"
+            onClick={closeModalHandler} >
 
             <section className="flex flex-col justify-start relative max-w-lg w-full rounded-lg p-3 bg-slate-200">
-                <button aria-label="close alert" className="w-6 h-6 absolute right-3 sm:right-4">
+                <button 
+                    onClick={onClose}
+                    aria-label="close alert" 
+                    className="w-6 h-6 absolute right-3 sm:right-4">
                     <SvgX />
                 </button>
                 <h2 className="font-medium mb-5 text-lg">
