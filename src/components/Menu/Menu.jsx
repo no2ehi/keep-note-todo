@@ -45,7 +45,7 @@ const Menu = () => {
     }
 
     return(
-        <div className="flex- flex-col w-1/5 fixed bg-slate-100 h-screen dark:bg-slate-800 shadow">
+        <div className="flex flex-col w-64 fixed bg-slate-100 h-screen dark:bg-slate-800 shadow">
             { modalLabelIsShown && (
                 <ModalLabel
                     onClose={closeModalLabelHandler}

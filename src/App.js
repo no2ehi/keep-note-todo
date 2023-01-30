@@ -13,12 +13,13 @@ function App() {
   },[])
 
   return (
-    <div className="bg-slate-200 text-slate-00 dark:bg-slate-900 dark:text-slate-400 min-h-screen">
+    <div className="bg-slate-200 text-slate-00 dark:bg-slate-900 dark:text-slate-400">
       <Menu />
-      <Header />
-      <TasksSection />
+      <main className="ml-64 min-h-screen bg-slate-200">
+        <Header />
+        <TasksSection />   
+      </main>
       <Footer />
-      heloo
     </div>
   );
 }
