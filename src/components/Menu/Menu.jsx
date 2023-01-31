@@ -20,6 +20,7 @@ const Menu = () => {
         <LayoutMenus
             menuOpen={menuOpen}
             closeMenuHandler={closeMenuHandler}
+            className="left-0"
         >        
 
             <h1 className="flex justify-center pt-10 text-slate-600 font-bold text-xl">Keep Note Todo</h1>
