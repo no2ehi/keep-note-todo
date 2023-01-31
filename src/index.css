@@ -28,3 +28,10 @@
   .stylesInputsField label {
     @apply mb-4 text-slate-600 dark:text-slate-500;
   }
+
+  .itemLabel > .buttonsLabel {
+    @apply xl:opacity-0 transition opacity-100;
+  }
+  .itemLabel:hover > .buttonsLabel {
+    @apply opacity-100;
+  }

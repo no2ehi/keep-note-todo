@@ -1,9 +1,10 @@
 
 import Modal from './Modal';
 
-const ModalConfirm = ({ onClose, text}) => {
+const ModalConfirm = ({ onConfirm, onClose, text }) => {
 
     const confirmCloseModal = () => {
+        onConfirm();
         onClose();
     }
 
