@@ -1,16 +1,77 @@
-
+import { useState } from 'react';
 import ButtonsSort from '../TasksSection/ButtonsSort';
+import TaskItem from '../TasksSection/TaskItem/TaskItem';
+
 const LayoutRoutes = () => {
+
+    const [isListInView1, setIsListInView1] = useState(false);
+
+
+    const defaultTasks: Task[] = [
+        {
+          title: "Task 1",
+          important: false,
+          description: "This is the description for this task",
+          date: "2023-04-12",
+          label: "Main",
+          completed: true,
+          id: "t1",
+        },
+        {
+          title: "Task 2",
+          important: true,
+          description: "This is the description for this task",
+          date: "2023-05-15",
+          label: "Main",
+          completed: true,
+          id: "t2",
+        },
+        {
+          title: "Task 3",
+          important: false,
+          description: "This is the description for this task",
+          date: "2023-08-21",
+          label: "Main",
+          completed: false,
+          id: "t3",
+        },
+      ];
 
     return(
         <section className="px-6">
 
             <div className="flex justify-between">
                 <h1 className="font-bold text-2xl">today's tasks (8 Tasks)</h1>
-                <ButtonsSort />
+                <ButtonsSort
+                    isListInView1={isListInView1}
+                    setIsListInView1={setIsListInView1}
+                />
             </div>
 
-            
+            <ul className={`mt-4 grid gap-2 sm:gap-4 xl:gap-6 ${
+                isListInView1
+                ? 'grid-cols-1'
+                : '2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 items-end'
+            }`}>
+
+                {defaultTasks.map( (task) => (
+                    <TaskItem key={task.id} isListInView1={isListInView1} task={task} />
+                ))}
+
+                <li>
+                    <button 
+                        className={`border-2 border-slate-300
+                        text-slate-400 w-full rounded-lg
+                         border-dashed transition hover:bg-slate-300
+                          hover:text-slate-500
+                          dark:border-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-300 ${
+                            isListInView1 ? "h-20 sm:h-32" : "h-52 sm:h-64"
+                          }`} >
+                        Add New Task
+                    </button>
+                </li>
+
+            </ul>
 
         </section>
     )
