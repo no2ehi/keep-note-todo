@@ -17,7 +17,14 @@ const ContentLabel = ({ classLinkActive }) => {
     }
 
     const createNewLabelHander = (inputValue) => {
-        dispatch(tasksActions.createLabel(inputValue))
+        const newLabelName = inputValue.trim();
+        if (newLabelName.length === 0 ) return;
+
+        const labelDoesNotExist = labels.every( (label) => label !== newLabelName);
+
+        if(labelDoesNotExist) {
+            dispatch(tasksActions.createLabel(inputValue))
+        }  
     }
 
     return(
