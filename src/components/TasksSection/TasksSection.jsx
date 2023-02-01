@@ -17,8 +17,14 @@ const TasksSection = () => {
                 <Route path="/today" element={<TodaysTasks />} />
                 <Route path="/" element={<AllTasks />} />
                 <Route path="/important" element={<ImportantTasks />} />
-                <Route path="/compeleted" element={<CompletedTasks />} />
+                <Route 
+                    path="/completed" 
+                    element={<CompletedTasks  done={true} title="Completed tasks" />}  />
+                <Route 
+                    path="/uncompleted" 
+                    element={<CompletedTasks done={false} title="UnCompleted tasks" />}  />
                 <Route path="/label/:label" element={<Label />} />
+                <Route path="*" element={<Navigate to="" />} />
             </Routes>
             
         </>

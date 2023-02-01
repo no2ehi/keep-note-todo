@@ -13,7 +13,7 @@ const BtnToggleCompleted = ({ task , isListInView1 }) => {
             {task.completed ? 'Completed' : 'UnCompleted'}
             </span>
 
-            <span className="sm:hidden w-6 h-6 grid place-items center">
+            <span className="sm:hidden w-6 h-6 grid place-items-center">
                 {task.completed 
                 ? (<Check className="w-3 h-3" />) 
                 : (<SvgX className="w-3 h-3" />) } 

@@ -1,50 +1,31 @@
 import { useState } from 'react';
 import ButtonsSort from '../TasksSection/ButtonsSort';
 import TaskItem from '../TasksSection/TaskItem/TaskItem';
+import { useDispatch } from 'react-redux';
+import useSortTasks from '../hooks/useSortTasks';
 
-const LayoutRoutes = () => {
+const LayoutRoutes = ({ title, tasks }) => {
 
-    const [isListInView1, setIsListInView1] = useState(false);
+  const [isListInView1, setIsListInView1] = useState(false);
+  
+  const dispatch = useDispatch();
+  
+  const { sortedBy, setSortedBy, sortedTasks } = useSortTasks(tasks);
 
-
-    const defaultTasks: Task[] = [
-        {
-          title: "Task 1",
-          important: false,
-          description: "This is the description for this task",
-          date: "2023-04-12",
-          label: "Main",
-          completed: true,
-          id: "t1",
-        },
-        {
-          title: "Task 2",
-          important: true,
-          description: "This is the description for this task",
-          date: "2023-05-15",
-          label: "Main",
-          completed: true,
-          id: "t2",
-        },
-        {
-          title: "Task 3",
-          important: false,
-          description: "This is the description for this task",
-          date: "2023-08-21",
-          label: "Main",
-          completed: false,
-          id: "t3",
-        },
-      ];
+  const taskTitle = `${title} (${tasks.length} ${
+    tasks.length === 1 ? 'Task' : 'Tasks'
+  })`;
 
     return(
         <section className="px-6">
 
             <div className="flex justify-between">
-                <h1 className="font-bold text-2xl">today's tasks (8 Tasks)</h1>
+                <h1 className="font-bold text-2xl">{taskTitle}</h1>
                 <ButtonsSort
                     isListInView1={isListInView1}
                     setIsListInView1={setIsListInView1}
+                    sortedBy={sortedBy}
+                    setSortedBy={setSortedBy}
                 />
             </div>
 
@@ -52,11 +33,12 @@ const LayoutRoutes = () => {
                 isListInView1
                 ? 'grid-cols-1'
                 : '2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 items-end'
-            }`}>
-
-                {defaultTasks.map( (task) => (
-                    <TaskItem key={task.id} isListInView1={isListInView1} task={task} />
-                ))}
+            }`}
+            >
+            
+            {sortedTasks.map((task) => (
+                  <TaskItem key={task.id} isListInView1={isListInView1} task={task} />
+              ))} 
 
                 <li>
                     <button 
