@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/keep-note-todo/static/css/main.b9e36b64.css",
+    "main.js": "/keep-note-todo/static/js/main.c3bf46e7.js",
+    "static/js/787.42559792.chunk.js": "/keep-note-todo/static/js/787.42559792.chunk.js",
+    "static/media/date.svg": "/keep-note-todo/static/media/date.19a98bcf46b03d7a44e026bda16c6914.svg",
+    "static/media/trash.svg": "/keep-note-todo/static/media/trash.5cc9432e2708a6dcfe6592df34e96f95.svg",
+    "static/media/view-2.svg": "/keep-note-todo/static/media/view-2.600c36983d8ff00e66c12490d69fbf70.svg",
+    "index.html": "/keep-note-todo/index.html",
+    "static/media/star-line.svg": "/keep-note-todo/static/media/star-line.25108e8798a98248471aab0a3712f57c.svg",
+    "static/media/options.svg": "/keep-note-todo/static/media/options.b23e257ac213477f9bf22b28d1837460.svg",
+    "static/media/view-1.svg": "/keep-note-todo/static/media/view-1.65654fa0f8e2ee287cc1b7fb0fa84715.svg",
+    "static/media/edit.svg": "/keep-note-todo/static/media/edit.2eac95ab110f00cd4f3a63594255835a.svg",
+    "static/media/bell.svg": "/keep-note-todo/static/media/bell.a0d880118f6893a39636d3007e55c100.svg",
+    "static/media/arrow.svg": "/keep-note-todo/static/media/arrow.3b06989b99047ede0ed33f04ec61ae93.svg",
+    "static/media/search.svg": "/keep-note-todo/static/media/search.ecdf8ec7c4f054fbcbfe4af53be7c8a2.svg",
+    "static/media/menu.svg": "/keep-note-todo/static/media/menu.e1e11b80ad71098a5dff1bff1301683e.svg",
+    "static/media/check.svg": "/keep-note-todo/static/media/check.1407f3a5b63fe4df2290b863f7e13b6f.svg",
+    "static/media/x.svg": "/keep-note-todo/static/media/x.6157b2f9cef61f43cfb9afb27dae1ef8.svg",
+    "main.b9e36b64.css.map": "/keep-note-todo/static/css/main.b9e36b64.css.map",
+    "main.c3bf46e7.js.map": "/keep-note-todo/static/js/main.c3bf46e7.js.map",
+    "787.42559792.chunk.js.map": "/keep-note-todo/static/js/787.42559792.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b9e36b64.css",
+    "static/js/main.c3bf46e7.js"
+  ]
+}
