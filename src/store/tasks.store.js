@@ -95,7 +95,30 @@ const tasksSlice = createSlice({
         addNewTask(state, action) {
             state.tasks = [action.payload, ...state.tasks];
         },
+        editTask(state, action) {
+            const taskId = action.payload.id;
 
+            const newTaskEdited = state.tasks.find( (task) => task.id === taskId);
+            const indexTask = state.tasks.indexOf(newTaskEdited);
+            state.tasks[indexTask] = action.payload;
+        },
+        toggleTaslCompleted(state, action) {
+            const taskId = action.payload;
+            const currentTask = state.tasks.find( (task) => task.id === taskId);
+
+            currentTask.completed = !currentTask.completed ;
+        },
+        deleteTask(state, action) {
+            const taskId = action.payload;
+            
+            state.tasks = state.tasks.filter( (task) => task.id !== taskId)
+        },
+        toggleMarkImportant(state, action) {
+            const taskId = action.payload;
+            const currentTask = state.tasks.find( (task) => task.id === taskId)
+
+            currentTask.important = !currentTask.important;
+        },
         createLabel(state, action) {
             const newLabel = action.payload;
             const labelAlreadyExits = state.labels.includes(newLabel);

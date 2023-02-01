@@ -1,9 +1,17 @@
 import { useState } from 'react';
 import { ReactComponent as OptionsSvg } from "../../../assets/options.svg";
 import ModalCreateTask from '../../Utilities/ModalCreateTask';
+import { tasksActions } from '../../../store/tasks.store';
+import { useDispatch } from 'react-redux';
 
 const BtnEditTask = ({ task }) => {
     const [showModal, setShowModal] = useState(false);
+
+    const dispatch = useDispatch();
+
+    const editTaskHandler = (taskEdited) => {
+        dispatch(tasksActions.editTask(taskEdited))
+      };
 
     return(
         <>
@@ -12,6 +20,7 @@ const BtnEditTask = ({ task }) => {
                 onClose={() => setShowModal(false)}
                 task={task}
                 nameForm="Edit Task"
+                onConfirm={editTaskHandler}
             />
         )}
         <button

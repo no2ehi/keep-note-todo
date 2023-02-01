@@ -1,7 +1,8 @@
+import React from 'react';
 
-import Modal from './Modal';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import Modal from './Modal';
 
 const InputCheckBox = ({ label, isChecked, setChecked}) => {
 
@@ -107,7 +108,7 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
     const submitNewTask = (e) => {
         e.preventDefault();
 
-        onConfirm({
+        const newTask = {
             title: title,
             important: isImportant,
             description: description,
@@ -115,7 +116,8 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
             label: label,
             completed: isCompleted,
             id: task?.id ? task.id : Date.now().toString(),
-        })
+        };
+        onConfirm(newTask);
         onClose();
     }
 

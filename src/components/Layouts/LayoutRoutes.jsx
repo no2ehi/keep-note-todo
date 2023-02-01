@@ -8,7 +8,6 @@ import { modalActions } from '../../store/modal.store';
 const LayoutRoutes = ({ title, tasks }) => {
 
   const [isListInView1, setIsListInView1] = useState(false);
-  const [NewTaskModal, setNewTaskModal] = useState(false);
   
   const dispatch = useDispatch();
   
