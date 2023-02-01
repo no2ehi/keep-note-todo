@@ -9,7 +9,7 @@ const defaultTasks = [
         label: "main",
         completed: true,
         id: "t1",
-        },
+    },
     {
         title: "Date with M",
         important: true,
@@ -92,6 +92,9 @@ const tasksSlice = createSlice({
     name: 'tasks',
     initialState: initialState,
     reducers: {
+        addNewTask(state, action) {
+            state.tasks = [action.payload, ...state.tasks];
+        },
 
         createLabel(state, action) {
             const newLabel = action.payload;

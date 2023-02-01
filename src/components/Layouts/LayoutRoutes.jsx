@@ -3,10 +3,12 @@ import ButtonsSort from '../TasksSection/ButtonsSort';
 import TaskItem from '../TasksSection/TaskItem/TaskItem';
 import { useDispatch } from 'react-redux';
 import useSortTasks from '../hooks/useSortTasks';
+import { modalActions } from '../../store/modal.store';
 
 const LayoutRoutes = ({ title, tasks }) => {
 
   const [isListInView1, setIsListInView1] = useState(false);
+  const [NewTaskModal, setNewTaskModal] = useState(false);
   
   const dispatch = useDispatch();
   
@@ -15,6 +17,10 @@ const LayoutRoutes = ({ title, tasks }) => {
   const taskTitle = `${title} (${tasks.length} ${
     tasks.length === 1 ? 'Task' : 'Tasks'
   })`;
+
+  const openModalHandler = () => {
+    dispatch(modalActions.openModalCreateTask())
+  }
 
     return(
         <section className="px-6">
@@ -42,6 +48,7 @@ const LayoutRoutes = ({ title, tasks }) => {
 
                 <li>
                     <button 
+                        onClick={openModalHandler}
                         className={`border-2 border-slate-300
                         text-slate-400 w-full rounded-lg
                          border-dashed transition hover:bg-slate-300
