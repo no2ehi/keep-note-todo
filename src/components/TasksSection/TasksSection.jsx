@@ -6,6 +6,8 @@ import TodaysTasks from '../Routes/TodaysTasks';
 import Label from '../Routes/Label';
 import ImportantTasks from '../Routes/ImportantTasks';
 import CompletedTasks from '../Routes/CompletedTasks';
+import SearchResults from '../Routes/SearchResults';
+import TaskOnly from '../Routes/TaskOnly'
 
 const TasksSection = () => {
 
@@ -24,6 +26,8 @@ const TasksSection = () => {
                     path="/uncompleted" 
                     element={<CompletedTasks done={false} title="UnCompleted tasks" />}  />
                 <Route path="/label/:label" element={<Label />} />
+                <Route path="/results" element={<SearchResults />} />
+                <Route path="/task/:taskId" element={<TaskOnly />} />
                 <Route path="*" element={<Navigate to="" />} />
             </Routes>
             
