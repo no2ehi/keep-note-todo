@@ -5,15 +5,15 @@ const Notification = () => {
 
     const links = [
         {
-            title: 'Profile',
+            title: 'task 1',
             icon: 'ProfileIcon',
         },
         {
-            title: 'edit profile',
+            title: 'task 2',
             icon: 'EditIcon',
         },
         {
-            title: 'logout',
+            title: 'task 3',
             icon: 'logoutIcon',
         },
     ]
