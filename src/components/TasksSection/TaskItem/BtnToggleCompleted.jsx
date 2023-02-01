@@ -18,7 +18,8 @@ const BtnToggleCompleted = ({ task , isListInView1 }) => {
             onClick={changeCompletedHandler}
             className={`font-medium rounded-full ${task.completed 
             ? 'bg-emerald-200 text-emerald-800' 
-            : 'bg-amber-200 text-amber-800'}`}>
+            : 'bg-amber-200 text-amber-800'} 
+            ${isListInView1 ? "mr-4" : "mr-4 order-0"} `}>
 
             <span className="block py-1 px-3 absolute invisible sm:static sm:visible">
             {task.completed ? 'Completed' : 'UnCompleted'}
