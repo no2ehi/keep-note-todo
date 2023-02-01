@@ -37,7 +37,7 @@ function App() {
         />
       )}
       <Menu />
-      <main className="ml-64 min-h-screen bg-slate-200">
+      <main className="xl:ml-64 min-h-screen bg-slate-200">
         <Header />
         <TasksSection />   
       </main>

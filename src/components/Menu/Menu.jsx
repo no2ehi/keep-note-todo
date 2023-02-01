@@ -1,7 +1,7 @@
 
 import LayoutMenus from '../Layouts/LayoutMenus';
 import { useSelector, useDispatch } from 'react-redux';
-import menusActions from '../../store/menu.store';
+import { menusActions } from '../../store/menu.store';
 import NavLinks from './NavLinks';
 import Labels from './Labels/Labels';
 

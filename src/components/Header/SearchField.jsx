@@ -4,8 +4,8 @@ import { ReactComponent as SearchIcon } from '../../assets/search.svg';
 const SearchField = () => {
 
     return(
-        <div className="flex-1 ">
-            <form className="relative w-full md:max-w-xs">
+        <div className="flex-1 col-span-3 row-start-2 md:pr-10">
+            <form className="relative w-full md:max-w-xs" autoComplete="off">
                 <label htmlFor="search"></label>
                 <input 
                     type="saerch" 

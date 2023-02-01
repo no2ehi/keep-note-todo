@@ -29,10 +29,10 @@ const Account = () => {
     // }
 
     return(
-        <div>
+        <div className="">
             <img
                 onClick={ () => setToggleAccount(!toggleAccount) } 
-                src={avatar} className="w-10 rounded-full mr-4"
+                src={avatar} className="w-10 h-10 rounded-full ml-2"
                 alt="avatar" />
             { toggleAccount && (
 

@@ -20,7 +20,7 @@ const Notification = () => {
     const [showNotification, setShowNotification] = useState(false);
 
     return(
-        <div className="mr-8 relative">
+        <div className="sm:mr-4 md:mr-6 ml-auto grid place-items-center relative">
             <button className="relative"
                 onClick={() => setShowNotification(!showNotification)}>
                 <BellIcon className="w-7 h-7 fill-violet-800"/>

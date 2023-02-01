@@ -2,8 +2,8 @@
 const Footer = () => {
 
     return(
-        <div className="ml-64 py-4 bg-violet-200">
-            footer is here
+        <div className="xl:ml-64 text-center py-4 font-bold ">
+            developed by no2ehi (github code)
         </div>
     )
 }
