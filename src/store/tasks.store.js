@@ -9,6 +9,7 @@ const defaultTasks = [
         label: "main",
         completed: true,
         id: "t1",
+        color: 'bg-[#f1f5f9]'
     },
     {
         title: "Date with M",
@@ -18,6 +19,7 @@ const defaultTasks = [
         label: "main",
         completed: true,
         id: "t2",
+        color: 'bg-[#f1f5f9]'
     },
     {
         title: "go to the gym",
@@ -27,6 +29,7 @@ const defaultTasks = [
         label: "main",
         completed: false,
         id: "t3",
+        color: 'bg-[#f1f5f9]'
     },
     {
         title: "search for new project",
@@ -36,6 +39,7 @@ const defaultTasks = [
         label: "main",
         completed: false,
         id: "t4",
+        color: 'bg-[#f1f5f9]'
     },
     {
         title: "make a Dinner",
@@ -45,6 +49,7 @@ const defaultTasks = [
         label: "main",
         completed: false,
         id: "t5",
+        color: 'bg-[#f1f5f9]'
     },
 ];
 

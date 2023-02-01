@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { ReactComponent as EditIcon } from '../../assets/edit.svg';
+import { ReactComponent as PinIcon } from '../../assets/pin.svg';
+import { ReactComponent as ColorPaletteIcon } from '../../assets/color-palette.svg';
+import { ReactComponent as LableOutlineIcon } from '../../assets/label-outline.svg';
 import { ReactComponent as CheckIcon } from '../../assets/check.svg';
 import { ReactComponent as DateIcon } from '../../assets/date.svg';
 import { ReactComponent as BellIcon } from '../../assets/bell.svg';
@@ -20,23 +22,36 @@ const NewTask = () => {
     const maxDate = year + 1 + "-" + month.toString().padStart(2, "0") + "-" + day.toString().padStart(2, "0");
 
     const [showAddTask, setShowAddTask] = useState(false);
+    const [colorTask, setColorTask] = useState('');
 
     const initialColorPalette = [
         {
             name: 'red',
-            code: '#F55050'
+            code: 'bg-[#F55050]'
         },
         {
             name: 'pantone',
-            code: '#F48484'
+            code: 'bg-[#F48484]'
         },
         {
             name: 'yellow',
-            code: '#F2CD5C'
+            code: 'bg-[#F2CD5C]'
         },
         {
             name: 'aqua',
-            code: '#46C2CB'
+            code: 'bg-[#46C2CB]'
+        },
+        {
+            name: 'green',
+            code: 'bg-[#22c55e]'
+        },
+        {
+            name: 'violet',
+            code: 'bg-[#8b5cf6]'
+        },
+        {
+            name: 'stone',
+            code: 'bg-[#a8a29e]'
         },
     ]
     const [showColorPalette, setShowColorPalette] = useState(false);
@@ -49,6 +64,7 @@ const NewTask = () => {
             important: false,
             completed: false,
             id: '',
+            color: ''
         });
 
     const dispatch = useDispatch();
@@ -77,7 +93,8 @@ const NewTask = () => {
         if(newTask.title && newTask.description && newTask.label) {
             const taskSubmit = {
                 ...newTask,
-                 id: Date.now().toString()
+                id: Date.now().toString(),
+                color: colorTask ? colorTask : 'bg-[#f1f5f9]'
             }       
             dispatch(tasksActions.addNewTask(taskSubmit));
             setShowAddTask(false);
@@ -98,8 +115,8 @@ const NewTask = () => {
         <div className="w-full h-auto mb-8 flex flex-row justify-center items-center">
 
             <div 
-                className={`${showAddTask && 'flex-col gap-3'}
-                flex justify-between mx-4 w-full md:w-3/5 bg-slate-400 text-slate-800 border rounded-lg shadow-md p-3`}>
+                className={`${showAddTask && 'flex-col gap-3'} ${colorTask ? colorTask : 'bg-slate-100'}
+                flex justify-between mx-4 w-full md:w-3/5 text-slate-800 border rounded-lg shadow-md p-3`}>
 
                 <form 
                     onSubmit={addNewTaskHandler}
@@ -115,13 +132,13 @@ const NewTask = () => {
                             type="text"
                             name="title"
                             placeholder="title..."
-                            className="bg-slate-400 placeholder:text-slate-700 font-medium outline-none w-full text-xl"   
+                            className="bg-transparent placeholder:text-slate-700 font-medium outline-none w-full text-xl"   
                             value={newTask.title}
                             onChange={changeTaskHandler}
                             />
                             
                             <button className={classBtnIcon}>
-                                <BellIcon  />
+                                <PinIcon className="w-6 h-6" />
                             </button>
                         </div>
                     )}
@@ -130,7 +147,7 @@ const NewTask = () => {
                         type="text"
                         name="description"
                         placeholder="Take a Task..."
-                        className={`${showAddTask ? 'h-24' : 'h-6'} bg-slate-400 placeholder:text-slate-800 font-medium outline-none w-full resize-none`}  
+                        className={`${showAddTask ? 'h-24' : 'h-6'} bg-transparent placeholder:text-slate-800 font-medium outline-none w-full resize-none`}  
                         value={newTask.description}
                         onChange={changeTaskHandler}
                     />
@@ -138,13 +155,13 @@ const NewTask = () => {
                     {!showAddTask && (
                         <div className="flex">
                             <button className={classBtnIcon}>
-                            <BellIcon  />
-                            </button>
-                            <button className={classBtnIcon}>
                                 <StarLine  />
                             </button>
                             <button className={classBtnIcon}>
                                 <CheckIcon  />
+                            </button>
+                            <button className={classBtnIcon}>
+                            <PinIcon className="w-6 h-6" />
                             </button>
                         </div>
                     )}
@@ -155,30 +172,29 @@ const NewTask = () => {
 
                             <div
                                 onClick={() => setShowColorPalette((prev) => !prev)}
-                                className="flex sm:w-1/3 jusitfy-between items-center bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
-                                <StarLine  />
-                                <span>Select a Color</span>
-                                {
-                                    showColorPalette && (
-                                        <div className="absolute w-48 h-22 bg-slate-100 rounded-md p-2 z-20 shadow ">
-                                            <ul className="flex flex-col">
-                                                {initialColorPalette.map((color) => (
-                                                    <div key={color.code} className={`bg-[${color.code}] m-1 pl-6 w-6 h-6 rounded-full `}>{color.code}</div>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )
-                                }
+                                className="flex sm:w-1/3 jusitfy-between items-center bg-slate-200 rounded-lg px-2 py-1.5 font-medium transition hover:bg-slate-100">
+                                <ColorPaletteIcon className="w-5 h-5" />
+                                <span className="ml-2">Select a Color</span>
+                                { showColorPalette && (
+                                <div className="absolute w-auto h-auto bg-slate-100 rounded-md p-2 z-20 shadow-md top-72">
+                                    <ul className="flex flex-row">
+                                        {initialColorPalette.map((color) => (
+                                            <li onClick={() => setColorTask(color.code)} key={color.code} className={`${color.code} m-1 w-7 h-7 border-2 border-slate-100 rounded-full shadow cursor-pointer hover:border-slate-800`}></li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                ) }
+                                { colorTask && (<div className={`${colorTask} ml-2 w-7 h-7 border-2 border-slate-100 rounded-full shadow`}></div>)}
                             </div>
 
-                            <div className="flex sm:w-1/3 items-center justify-between bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
-                                <StarLine  />
+                            <div className="flex sm:w-1/3 items-center justify-between bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-100">
+                                <LableOutlineIcon className="w-6 h-6" />
                                 <select
                                     type="select"
                                     name="label"
                                     value={newTask.label}
                                     onChange={changeTaskHandler}
-                                    className="bg-transparent outline-none rounded-lg bg-slate-200 p-2"
+                                    className="w-full bg-transparent outline-none rounded-lg bg-slate-200 p-2"
                                     required
                                 >
                                     <option value="" disabled>Labels</option>
@@ -202,8 +218,8 @@ const NewTask = () => {
                                 />
                             </div> */}
 
-                            <div className="flex sm:w-1/3 items-center justify-between bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
-                                <StarLine  />
+                            <div className="flex sm:w-1/3 items-center justify-between bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-100">
+                                <DateIcon  />
                                 <input 
                                     type="date"
                                     name="date"
@@ -216,55 +232,42 @@ const NewTask = () => {
                                 />
                             </div>
 
-
-                           
-
                         </div>
                     )}
                     
-                
                     {/* actions Buttons */}
                     <div className={`${showAddTask ? 
                         'flex flex-col sm:flex-row items-center justify-between pt-4' : 
                         'flex flex-row '} `} >
 
                         <div className="flex">
-                            {/* <button className={classBtnIcon}>
-                                <StarLine  />
-                            </button>
-                            <button className={classBtnIcon}>
-                                <CheckIcon  />
-                            </button>
-                            <button className={classBtnIcon}>
-                                <DateIcon  />
-                            </button> */}
                             {showAddTask && (
                                 <>
-                                    <div className="flex items-center">
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                        <input 
-                                            type="checkbox" 
-                                            name="important"
-                                            value={newTask.important} 
-                                            onChange={changeTaskHandler}
-                                            className="sr-only peer" />
-                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                                        <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Important</span>
-                                        </label>
-                                    </div>
+                                <div className="flex items-center">
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                    <input 
+                                        type="checkbox" 
+                                        name="important"
+                                        value={newTask.important} 
+                                        onChange={changeTaskHandler}
+                                        className="sr-only peer" />
+                                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                    <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Important</span>
+                                    </label>
+                                </div>
 
-                                    <div className="flex items-center ml-4">
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                        <input 
-                                            type="checkbox"
-                                            name="completed"
-                                            value={newTask.completed} 
-                                            onChange={changeTaskHandler}
-                                            className="sr-only peer" />
-                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                                        <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Completed</span>
-                                        </label>
-                                    </div>
+                                <div className="flex items-center ml-4">
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                    <input 
+                                        type="checkbox"
+                                        name="completed"
+                                        value={newTask.completed} 
+                                        onChange={changeTaskHandler}
+                                        className="sr-only peer" />
+                                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                    <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Completed</span>
+                                    </label>
+                                </div>
                                     
                                 </>
                             )}
@@ -273,11 +276,11 @@ const NewTask = () => {
                         <div className="mt-3 flex justify-between">
                             <button
                                 onClick={() => setShowAddTask(false)}
-                                className={`${showAddTask ? 'visible bg-slate-300 py-1 px-3 rounded-md mr-2' : 'hidden'}`}>
+                                className={`${showAddTask ? 'visible py-1 px-3 rounded-md mr-2' : 'hidden'}`}>
                                 Close
                             </button>
                             <button
-                                className={`${showAddTask ? 'visible bg-slate-200 py-1 px-3 rounded-md ' : 'hidden'}`}>
+                                className={`${showAddTask ? 'visible bg-slate-300 py-1 px-3 rounded-md ' : 'hidden'}`}>
                                 Add a note
                             </button>
                         </div>
