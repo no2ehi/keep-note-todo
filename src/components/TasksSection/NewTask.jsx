@@ -151,11 +151,11 @@ const NewTask = () => {
 
                     {/* Labels */
                     showAddTask && (
-                        <div className="flex justify-between gap-4">
+                        <div className="flex flex-col sm:flex-row justify-between gap-4">
 
                             <div
                                 onClick={() => setShowColorPalette((prev) => !prev)}
-                                className="flex w-1/3 jusitfy-between items-center bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
+                                className="flex sm:w-1/3 jusitfy-between items-center bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
                                 <StarLine  />
                                 <span>Select a Color</span>
                                 {
@@ -171,7 +171,7 @@ const NewTask = () => {
                                 }
                             </div>
 
-                            <div className="flex w-1/3 items-center justify-between bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
+                            <div className="flex sm:w-1/3 items-center justify-between bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
                                 <StarLine  />
                                 <select
                                     type="select"
@@ -202,7 +202,7 @@ const NewTask = () => {
                                 />
                             </div> */}
 
-                            <div className="flex w-1/3 items-center justify-between bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
+                            <div className="flex sm:w-1/3 items-center justify-between bg-slate-200 rounded-lg px-2 font-medium transition hover:bg-slate-500">
                                 <StarLine  />
                                 <input 
                                     type="date"
@@ -225,7 +225,7 @@ const NewTask = () => {
                 
                     {/* actions Buttons */}
                     <div className={`${showAddTask ? 
-                        'flex items-center justify-between pt-4' : 
+                        'flex flex-col sm:flex-row items-center justify-between pt-4' : 
                         'flex flex-row '} `} >
 
                         <div className="flex">
@@ -269,8 +269,8 @@ const NewTask = () => {
                                 </>
                             )}
                         </div>
-                        <div>
-                            
+
+                        <div className="mt-3 flex justify-between">
                             <button
                                 onClick={() => setShowAddTask(false)}
                                 className={`${showAddTask ? 'visible bg-slate-300 py-1 px-3 rounded-md mr-2' : 'hidden'}`}>

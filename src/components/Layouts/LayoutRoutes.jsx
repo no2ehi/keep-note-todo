@@ -24,7 +24,7 @@ const LayoutRoutes = ({ title, tasks }) => {
     return(
         <section className="px-6">
 
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
                 <h1 className="font-bold text-2xl">{taskTitle}</h1>
                 <ButtonsSort
                     isListInView1={isListInView1}
