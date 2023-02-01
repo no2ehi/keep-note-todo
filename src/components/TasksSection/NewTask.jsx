@@ -269,10 +269,18 @@ const NewTask = () => {
                                 </>
                             )}
                         </div>
-                        <button
-                            className={`${showAddTask ? 'visible bg-slate-300 py-1 px-3 rounded-md' : 'hidden'}`}>
-                            Close
-                        </button>
+                        <div>
+                            
+                            <button
+                                onClick={() => setShowAddTask(false)}
+                                className={`${showAddTask ? 'visible bg-slate-300 py-1 px-3 rounded-md mr-2' : 'hidden'}`}>
+                                Close
+                            </button>
+                            <button
+                                className={`${showAddTask ? 'visible bg-slate-200 py-1 px-3 rounded-md ' : 'hidden'}`}>
+                                Add a note
+                            </button>
+                        </div>
 
                     </div>
 
