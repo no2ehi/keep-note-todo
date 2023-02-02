@@ -16,7 +16,7 @@ const InfoTask = ({ task, isListInView1 }) => {
             </div>
             <p
                 title={task.description}
-                className={`description mb-2 text-slate-500 dark:text-slate-500 ${
+                className={`description mb-2 text-slate-900 dark:text-slate-500 ${
                 isListInView1 ? "line-clamp-2 sm:line-clamp-1" : "line-clamp-3"
                 }`}
             >

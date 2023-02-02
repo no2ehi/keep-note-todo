@@ -9,7 +9,7 @@ const defaultTasks = [
         label: "main",
         completed: true,
         id: "t1",
-        color: 'bg-[#f1f5f9]'
+        color: 'bg-[#8b5cf6]'
     },
     {
         title: "Date with M",
@@ -19,7 +19,7 @@ const defaultTasks = [
         label: "main",
         completed: true,
         id: "t2",
-        color: 'bg-[#f1f5f9]'
+        color: 'bg-[#46C2CB]'
     },
     {
         title: "go to the gym",
@@ -34,7 +34,7 @@ const defaultTasks = [
     {
         title: "search for new project",
         important: false,
-        description: "react & nextjs",
+        description: "document react & nextjs",
         date: "2023-02-01",
         label: "main",
         completed: false,
@@ -44,12 +44,12 @@ const defaultTasks = [
     {
         title: "make a Dinner",
         important: true,
-        description: "kame JOUSH",
+        description: "kame JOUSH with piaz!",
         date: "2023-02-01",
         label: "main",
         completed: false,
         id: "t5",
-        color: 'bg-[#f1f5f9]'
+        color: 'bg-[#F2CD5C]'
     },
 ];
 

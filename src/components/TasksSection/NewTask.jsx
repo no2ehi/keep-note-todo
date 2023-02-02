@@ -4,10 +4,11 @@ import { ReactComponent as ColorPaletteIcon } from '../../assets/color-palette.s
 import { ReactComponent as LableOutlineIcon } from '../../assets/label-outline.svg';
 import { ReactComponent as CheckIcon } from '../../assets/check.svg';
 import { ReactComponent as DateIcon } from '../../assets/date.svg';
-import { ReactComponent as BellIcon } from '../../assets/bell.svg';
+
 import { ReactComponent as StarLine } from "../../assets/star-line.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import { tasksActions } from '../../store/tasks.store';
+import { initialColorPalette } from '../Constants/colorPalette';
 
 const NewTask = () => {
 
@@ -24,36 +25,7 @@ const NewTask = () => {
     const [showAddTask, setShowAddTask] = useState(false);
     const [colorTask, setColorTask] = useState('');
 
-    const initialColorPalette = [
-        {
-            name: 'red',
-            code: 'bg-[#F55050]'
-        },
-        {
-            name: 'pantone',
-            code: 'bg-[#F48484]'
-        },
-        {
-            name: 'yellow',
-            code: 'bg-[#F2CD5C]'
-        },
-        {
-            name: 'aqua',
-            code: 'bg-[#46C2CB]'
-        },
-        {
-            name: 'green',
-            code: 'bg-[#22c55e]'
-        },
-        {
-            name: 'violet',
-            code: 'bg-[#8b5cf6]'
-        },
-        {
-            name: 'stone',
-            code: 'bg-[#a8a29e]'
-        },
-    ]
+
     const [showColorPalette, setShowColorPalette] = useState(false);
 
     const [newTask, setNewTask] = useState({

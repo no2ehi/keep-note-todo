@@ -3,6 +3,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import Modal from './Modal';
+import { initialColorPalette } from '../Constants/colorPalette';
+import { ReactComponent as ColorPaletteIcon } from '../../assets/color-palette.svg';
+import DropDownColorPalette from './DropDownColorPalette';
+
 
 const InputCheckBox = ({ label, isChecked, setChecked}) => {
 
@@ -28,26 +32,6 @@ const InputCheckBox = ({ label, isChecked, setChecked}) => {
 const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
 
     const labels = useSelector((state) => state.tasks.labels);
-
-    // const [newTask, setNewTask] = useState(() => {
-    //     if(task){
-    //         return task;
-    //     } else {
-    //         return "";
-    //     }
-    // });
-
-    // const changeTaskHandler = (e) => {
-        // const name = e.target.name;
-        // const value = e.target.value === 'checkbox' ? e.target.checked  : e.target.value;
-        // setNewTask([
-        //     ...newTask,
-        //     {
-        //         [name]: value
-        //     }
-        // ])
-        // console.log('input: ', newTask);
-    // }
 
     const today = new Date();
     let day = today.getDate();
@@ -89,6 +73,14 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
         }
     })
 
+    const [color, setColor] = useState(() => {
+        if(task) {
+            return task.color;
+        } else {
+            return initialColorPalette[0];
+        }
+    })
+
     const [isImportant, setIsImportant] = useState(() => {
         if(task) {
             return task.important;
@@ -116,6 +108,7 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
             label: label,
             completed: isCompleted,
             id: task?.id ? task.id : Date.now().toString(),
+            color: color
         };
         onConfirm(newTask);
         onClose();
@@ -165,20 +158,29 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
                         required
                     />
                 </label>
-                <label>
-                    Select a Label 
-                    <select
-                        name="label"
-                        onChange={(e) => setLabel(e.target.value)}
-                        className="block w-full"
-                        required
-                        value={label}
-                    >
-                        {labels.map((label) => (
-                            <option value={label} key={label}>{label}</option>
-                        ))}
-                    </select>
-                </label>
+
+                <div className="flex justify-between gap-4">
+                    <label className="flex flex-col flex-grow">
+                        Select a Label 
+                        <select
+                            name="label"
+                            onChange={(e) => setLabel(e.target.value)}
+                            className="block w-full"
+                            required
+                            value={label}
+                        >
+                            {labels.map((label) => (
+                                <option value={label} key={label}>{label}</option>
+                            ))}
+                        </select>
+                    </label>
+                    
+                    <label className="flex flex-col flex-grow h-16">
+                        Select a Color
+                        <DropDownColorPalette setColor={setColor} color={color}/>
+                        {console.log(color)}
+                    </label>
+                </div>
 
                 <InputCheckBox
                     isChecked={isImportant}

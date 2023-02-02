@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://no2ehi.github.io/keep-note-todo",
   "dependencies": {
+    "@headlessui/react": "^1.7.8",
+    "@heroicons/react": "^2.0.14",
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
