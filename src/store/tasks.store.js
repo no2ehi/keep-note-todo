@@ -25,7 +25,7 @@ const defaultTasks = [
         title: "go to the gym",
         important: false,
         description: "eat some eggs",
-        date: "2023-01-21",
+        date: "2023-02-03",
         label: "main",
         completed: false,
         id: "t3",

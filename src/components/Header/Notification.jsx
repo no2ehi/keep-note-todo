@@ -1,42 +1,74 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ReactComponent as BellIcon } from '../../assets/bell.svg';
+import useVisibility from '../hooks/useVisibility';
+import useTodayTasks from '../hooks/useTodayTasks';
+import useCompletedTasks from "../hooks/useCompletedTasks";
+import { Link } from 'react-router-dom';
 
 const Notification = () => {
 
-    const links = [
-        {
-            title: 'task 1',
-            icon: 'ProfileIcon',
-        },
-        {
-            title: 'task 2',
-            icon: 'EditIcon',
-        },
-        {
-            title: 'task 3',
-            icon: 'logoutIcon',
-        },
-    ]
-    const [showNotification, setShowNotification] = useState(false);
+    const refBtnNotification = useRef(null);
+
+    const {
+      elementIsVisible: notificationIsVisible,
+      showElement: showNotifications,
+    } = useVisibility([refBtnNotification.current]);
+  
+    const todaysTasks = useTodayTasks();
+  
+    const { sortedTasks: uncompletedTasks } = useCompletedTasks({
+      tasks: todaysTasks,
+      done: false,
+    });
+  
+    const tasksToShow = uncompletedTasks.slice(0, 3);
+  
+    const moreTasksToShow = uncompletedTasks.length > tasksToShow.length;
+
+    const classHasNotification =
+  "after:content-[''] after:w-2 after:h-2 after:bg-rose-500 block after:rounded-full after:absolute after:bottom-3/4  after:left-3/4";
+
 
     return(
         <div className="sm:mr-4 md:mr-6 ml-auto grid place-items-center relative">
-            <button className="relative"
-                onClick={() => setShowNotification(!showNotification)}>
+            <button
+                ref={refBtnNotification}
+                className={`relative ${tasksToShow.length ? classHasNotification : ""}`}
+                onClick={showNotifications}>
                 <BellIcon className="w-7 h-7 fill-violet-800"/>
             </button>
-            { showNotification && (
-                <div
-                    className="absolute w-36 py-1 h-auto -right-3 top-12 bg-slate-100 rounded-md shadow-md ">
-                    <div className="bg-slate-100 w-3 h-3 rotate-45 absolute right-5 -top-1"></div>
-                    <ul>
-                        {links.map((link, i) => (
-                            <li key={i} 
-                                className="px-4 py-2 border-b hover:bg-slate-200">{link.title}</li>
-                        ))}
-                    </ul>
+            { notificationIsVisible && (
+                <div className="absolute top-full right-0 bg-slate-100 rounded-md p-3 w-52 border border-slate-300">
+                    {uncompletedTasks.length > 0 ? (
+                        <div>
+                            <span className="font-medium">
+                                You have {uncompletedTasks.length} uncompleted tasks today:
+                            </span>
+                            <ul>
+                            {tasksToShow.map((task) => (
+                                <li key={task.id} className="py-1">
+                                    <Link
+                                    to={`/task/${task.id}`}
+                                    className="hover:text-slate-200 transition"
+                                    >
+                                    {task.title}
+                                    </Link>
+                                </li>
+                            ))}
+                            </ul>
+                            {moreTasksToShow && (
+                                <a
+                                href="/"
+                                className="transition block w-full rounded-md p-1 bg-rose-100 text-rose-600 dark:text-slate-200 dark:bg-slate-700/[.3] text-center"
+                                >
+                                See today's tasks
+                                </a>
+                            )}
+                        </div>
+                    ) : (
+                        <p>Nothing to shew here!</p>
+                    )}
                 </div>
-
             )}
         </div>
     )

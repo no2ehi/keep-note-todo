@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useCompletedTasks = ({ tasks, done }) => {
+    
 
     const [sortedTasks, setSortedTasks] = useState([]);
 
@@ -9,19 +10,18 @@ const useCompletedTasks = ({ tasks, done }) => {
             if(status) {
                 return task.completed;
             } else {
+                
                 return !task.completed
             }
         });
-
         setSortedTasks(sorted);
     }
-
+    
     useEffect(() => {
-        sortByCompletedStatus(done);
+        sortByCompletedStatus(done)
     }, [tasks, done])
-
+    
     return { sortedTasks };
-
 }
 
 
