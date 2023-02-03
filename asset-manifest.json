@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/keep-note-todo/static/css/main.182e704f.css",
-    "main.js": "/keep-note-todo/static/js/main.6290cc02.js",
+    "main.css": "/keep-note-todo/static/css/main.c69425da.css",
+    "main.js": "/keep-note-todo/static/js/main.57dca19f.js",
     "static/js/787.42559792.chunk.js": "/keep-note-todo/static/js/787.42559792.chunk.js",
     "static/media/pin.svg": "/keep-note-todo/static/media/pin.497d9cb913764f5f7ec2dd7c32137d90.svg",
     "static/media/color-palette.svg": "/keep-note-todo/static/media/color-palette.d9952d46b5da8f0a5182180c8129966c.svg",
@@ -20,12 +20,12 @@
     "static/media/menu.svg": "/keep-note-todo/static/media/menu.e1e11b80ad71098a5dff1bff1301683e.svg",
     "static/media/check.svg": "/keep-note-todo/static/media/check.1407f3a5b63fe4df2290b863f7e13b6f.svg",
     "static/media/x.svg": "/keep-note-todo/static/media/x.6157b2f9cef61f43cfb9afb27dae1ef8.svg",
-    "main.182e704f.css.map": "/keep-note-todo/static/css/main.182e704f.css.map",
-    "main.6290cc02.js.map": "/keep-note-todo/static/js/main.6290cc02.js.map",
+    "main.c69425da.css.map": "/keep-note-todo/static/css/main.c69425da.css.map",
+    "main.57dca19f.js.map": "/keep-note-todo/static/js/main.57dca19f.js.map",
     "787.42559792.chunk.js.map": "/keep-note-todo/static/js/787.42559792.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.182e704f.css",
-    "static/js/main.6290cc02.js"
+    "static/css/main.c69425da.css",
+    "static/js/main.57dca19f.js"
   ]
 }
