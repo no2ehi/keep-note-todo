@@ -15,7 +15,7 @@ const Header = () => {
     }
 
     return(
-        <div className="grid grid-cols-[1fr_auto_1fr] gap-4 md:gap-0 md:flex justify-between items-center p-5 bg-slate-200">
+        <div className="grid grid-cols-[1fr_auto_1fr] gap-4 md:gap-0 md:flex md:px-9 justify-between items-center p-5 bg-slate-200">
             <button className="xl:hidden mr-6"
                 onClick={openMenuhandler}>
                 <MenuIcon />

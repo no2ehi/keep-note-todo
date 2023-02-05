@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ReactComponent as PinIcon } from '../../assets/pin.svg';
+import { ReactComponent as PinFillIcon } from '../../assets/pin-fill.svg';
 import { ReactComponent as ColorPaletteIcon } from '../../assets/color-palette.svg';
 import { ReactComponent as LableOutlineIcon } from '../../assets/label-outline.svg';
 import { ReactComponent as CheckIcon } from '../../assets/check.svg';
@@ -24,6 +24,7 @@ const NewTask = () => {
 
     const [showAddTask, setShowAddTask] = useState(false);
     const [colorTask, setColorTask] = useState('');
+    const [pinnedTask, setPinnedTasks] = useState(false);
 
 
     const [showColorPalette, setShowColorPalette] = useState(false);
@@ -60,13 +61,19 @@ const NewTask = () => {
         
     }
 
+    const pinnedTaskHandler = (e) => {
+        e.preventDefault();
+        setPinnedTasks((prev) => !prev)
+    }
+
     const addNewTaskHandler = (e) => {
         e.preventDefault();
         if(newTask.title && newTask.description && newTask.label) {
             const taskSubmit = {
                 ...newTask,
                 id: Date.now().toString(),
-                color: colorTask ? colorTask : 'bg-[#f1f5f9]'
+                color: colorTask ? colorTask : 'bg-[#f1f5f9]',
+                pinned: pinnedTask
             }       
             dispatch(tasksActions.addNewTask(taskSubmit));
             setShowAddTask(false);
@@ -79,6 +86,7 @@ const NewTask = () => {
             label: "",
             completed: false,
             id: '',
+            pinned: false
         });
           
     }
@@ -109,8 +117,11 @@ const NewTask = () => {
                             onChange={changeTaskHandler}
                             />
                             
-                            <button className={classBtnIcon}>
-                                <PinIcon className="w-6 h-6" />
+                            <button
+                                onClick={pinnedTaskHandler}
+                                className={classBtnIcon}>
+                                <PinFillIcon className={`w-6 h-6 stroke-black 
+                                ${pinnedTask ?  'fill-black' : 'fill-none'}`} />
                             </button>
                         </div>
                     )}
@@ -133,7 +144,7 @@ const NewTask = () => {
                                 <CheckIcon  />
                             </button>
                             <button className={classBtnIcon}>
-                            <PinIcon className="w-6 h-6" />
+                            <PinFillIcon className="w-5 h-5 fill-none stroke-black" />
                             </button>
                         </div>
                     )}

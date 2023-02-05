@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import avatar from '../../assets/avatar-1.jpg';
+import useVisibility from '../hooks/useVisibility';
 
 const Account = () => {
 
@@ -18,26 +19,29 @@ const Account = () => {
         },
     ]
 
-    const [toggleAccount, setToggleAccount] = useState(false);
+    const refBtnAccount = useRef(null);
 
-    // const closeToggleAccount = (e) => {
-    //     console.log('a:',e.target);
-    //     console.log('b:',e.currentTarget);
-    //     if(e.target === e.currentTarget) {
-    //         setToggleAccount(false);
-    //     }
-    // }
+    const {
+        elementIsVisible: accountIsVisible,
+        showElement: showAccount,
+      } = useVisibility([refBtnAccount.current]);
+
+    const showAccountHandler = (e) => {
+        showAccount();
+    }
 
     return(
-        <div className="">
+        <div className="relative">
             <img
-                onClick={ () => setToggleAccount(!toggleAccount) } 
-                src={avatar} className="w-10 h-10 rounded-full ml-2"
+                draggable={false}
+                ref={refBtnAccount}
+                onClick={showAccountHandler} 
+                src={avatar} className="w-10 h-10 rounded-full ml-2 border-2 border-white shadow"
                 alt="avatar" />
-            { toggleAccount && (
+            { accountIsVisible && (
 
                 <div
-                    className="absolute w-36 py-1 h-auto right-8 top-20 bg-slate-100 rounded-md shadow-md ">
+                    className="absolute w-36 py-1 h-auto -right-1 top-full mt-3 bg-slate-100 rounded-md shadow-md ">
                     <div className="bg-slate-100 w-3 h-3 rotate-45 absolute right-5 -top-1"></div>
                     <ul>
                         {links.map((link, i) => (

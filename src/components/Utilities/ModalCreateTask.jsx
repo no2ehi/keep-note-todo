@@ -97,6 +97,14 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
         }
     })
 
+    const [isPinned, setIsPinned] = useState(() => {
+        if(task) {
+            return task.pinned;
+        } else {
+            return false;
+        }
+    })
+
     const submitNewTask = (e) => {
         e.preventDefault();
 
@@ -108,7 +116,8 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
             label: label,
             completed: isCompleted,
             id: task?.id ? task.id : Date.now().toString(),
-            color: color
+            color: color,
+            pinned: isPinned
         };
         onConfirm(newTask);
         onClose();
@@ -192,6 +201,12 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
                     isChecked={isCompleted}
                     setChecked={setisCompleted}
                     label="Mark as completed"
+                />
+
+                <InputCheckBox
+                    isChecked={isPinned}
+                    setChecked={setIsPinned}
+                    label="Mark as pinned"
                 />
 
                 <button type="submit" className="btn mt-5">

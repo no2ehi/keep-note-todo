@@ -9,7 +9,8 @@ const defaultTasks = [
         label: "main",
         completed: true,
         id: "t1",
-        color: 'bg-[#8b5cf6]'
+        color: 'bg-[#8b5cf6]',
+        pinned: false
     },
     {
         title: "Date with M",
@@ -19,17 +20,19 @@ const defaultTasks = [
         label: "main",
         completed: true,
         id: "t2",
-        color: 'bg-[#46C2CB]'
+        color: 'bg-[#46C2CB]',
+        pinned: true
     },
     {
         title: "go to the gym",
         important: false,
         description: "eat some eggs",
-        date: "2023-02-03",
+        date: "2023-02-04",
         label: "main",
         completed: false,
         id: "t3",
-        color: 'bg-[#f1f5f9]'
+        color: 'bg-[#f1f5f9]',
+        pinned: false
     },
     {
         title: "search for new project",
@@ -39,7 +42,8 @@ const defaultTasks = [
         label: "main",
         completed: false,
         id: "t4",
-        color: 'bg-[#f1f5f9]'
+        color: 'bg-[#f1f5f9]',
+        pinned: false
     },
     {
         title: "make a Dinner",
@@ -49,7 +53,8 @@ const defaultTasks = [
         label: "main",
         completed: false,
         id: "t5",
-        color: 'bg-[#F2CD5C]'
+        color: 'bg-[#F2CD5C]',
+        pinned: true
     },
 ];
 
@@ -112,6 +117,12 @@ const tasksSlice = createSlice({
             const currentTask = state.tasks.find( (task) => task.id === taskId);
 
             currentTask.completed = !currentTask.completed ;
+        },
+        toggleTaskPinned( state, action) {
+            const taskId= action.payload;
+            const currentTask = state.tasks.find( (task) => task.id === taskId);
+
+            currentTask.pinned = !currentTask.pinned;
         },
         deleteTask(state, action) {
             const taskId = action.payload;
