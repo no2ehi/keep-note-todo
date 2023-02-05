@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/keep-note-todo/static/css/main.c69425da.css",
-    "main.js": "/keep-note-todo/static/js/main.57dca19f.js",
+    "main.css": "/keep-note-todo/static/css/main.c9f926ce.css",
+    "main.js": "/keep-note-todo/static/js/main.fc5d78da.js",
     "static/js/787.42559792.chunk.js": "/keep-note-todo/static/js/787.42559792.chunk.js",
-    "static/media/pin.svg": "/keep-note-todo/static/media/pin.497d9cb913764f5f7ec2dd7c32137d90.svg",
     "static/media/color-palette.svg": "/keep-note-todo/static/media/color-palette.d9952d46b5da8f0a5182180c8129966c.svg",
+    "static/media/pin-fill.svg": "/keep-note-todo/static/media/pin-fill.94473c96c9358ef45c925bf5372036db.svg",
     "static/media/date.svg": "/keep-note-todo/static/media/date.19a98bcf46b03d7a44e026bda16c6914.svg",
     "static/media/trash.svg": "/keep-note-todo/static/media/trash.5cc9432e2708a6dcfe6592df34e96f95.svg",
     "static/media/view-2.svg": "/keep-note-todo/static/media/view-2.600c36983d8ff00e66c12490d69fbf70.svg",
@@ -20,12 +20,12 @@
     "static/media/menu.svg": "/keep-note-todo/static/media/menu.e1e11b80ad71098a5dff1bff1301683e.svg",
     "static/media/check.svg": "/keep-note-todo/static/media/check.1407f3a5b63fe4df2290b863f7e13b6f.svg",
     "static/media/x.svg": "/keep-note-todo/static/media/x.6157b2f9cef61f43cfb9afb27dae1ef8.svg",
-    "main.c69425da.css.map": "/keep-note-todo/static/css/main.c69425da.css.map",
-    "main.57dca19f.js.map": "/keep-note-todo/static/js/main.57dca19f.js.map",
+    "main.c9f926ce.css.map": "/keep-note-todo/static/css/main.c9f926ce.css.map",
+    "main.fc5d78da.js.map": "/keep-note-todo/static/js/main.fc5d78da.js.map",
     "787.42559792.chunk.js.map": "/keep-note-todo/static/js/787.42559792.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c69425da.css",
-    "static/js/main.57dca19f.js"
+    "static/css/main.c9f926ce.css",
+    "static/js/main.fc5d78da.js"
   ]
 }
