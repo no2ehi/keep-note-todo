@@ -4,7 +4,7 @@ const defaultTasks = [
     {
         title: "read book",
         important: false,
-        description: "thind and grows",
+        description: "think and grows",
         date: "2023-02-12",
         label: "main",
         completed: true,
@@ -55,6 +55,61 @@ const defaultTasks = [
         id: "t5",
         color: 'bg-[#F2CD5C]',
         pinned: true
+    },
+    {
+        title: "New Project",
+        important: false,
+        description: "add new project to github",
+        date: "2023-03-01",
+        label: "",
+        completed: true,
+        id: "t6",
+        color: 'bg-[#F48484]',
+        pinned: false
+    },
+    {
+        title: "LinkedIn",
+        important: true,
+        description: "Edit LinkedIn profile",
+        date: "2023-02-29",
+        label: "main",
+        completed: false,
+        id: "t7",
+        color: 'bg-[#f1f5f9]',
+        pinned: false
+    },
+    {
+        title: "Weekly assessment",
+        important: false,
+        description: "Evaluation of weekly activities",
+        date: "2023-02-27",
+        label: "main",
+        completed: false,
+        id: "t8",
+        color: 'bg-[#f1f5f9]',
+        pinned: false
+    },
+    {
+        title: "Car insurance payment",
+        important: true,
+        description: "Payment of the seventh installment at the end of the month",
+        date: "2023-03-22",
+        label: "main",
+        completed: true,
+        id: "t9",
+        color: 'bg-[#f1f5f9]',
+        pinned: false
+    },
+    {
+        title: "Buy fruit",
+        important: false,
+        description: "Buy fruit for the weekend",
+        date: "2023-02-18",
+        label: "main",
+        completed: false,
+        id: "10",
+        color: 'bg-[#f1f5f9]',
+        pinned: false
     },
 ];
 
