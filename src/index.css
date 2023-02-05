@@ -35,3 +35,23 @@
   .itemLabel:hover > .buttonsLabel {
     @apply opacity-100;
   }
+
+
+  ::-webkit-scrollbar {
+    @apply w-3;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-200 ;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-md border border-red-400;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
