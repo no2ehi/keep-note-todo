@@ -2,7 +2,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    menuOpened: false
+    menuOpened: false,
+    menuAccountOpened: false,
 }
 
 const menuSlice = createSlice({
@@ -14,6 +15,12 @@ const menuSlice = createSlice({
         },
         closeMenu(state) {
             state.menuOpened = false;
+        },
+        openMenuAccount(state) {
+            state.menuAccountOpened = true;
+        },
+        closeMenuAccount(state) {
+            state.menuAccountOpened = false;
         }
     }
 })

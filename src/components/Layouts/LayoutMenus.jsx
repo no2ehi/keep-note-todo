@@ -8,7 +8,9 @@ const LayoutMenus = ({ children, menuOpen, closeMenuHandler, className }) => {
     return(
         <>
             <div className={`flex flex-col w-64 fixed bg-slate-100 h-screen dark:bg-slate-800 shadow z-20
-                ${className} ${menuOpen || mediaQueries.xl ? "block" : "hidden"} `}>
+                ${className} 
+                ${ (menuOpen || mediaQueries.xl) ? 'block' : 'hidden' }
+                `}>
                 {children}
             </div>
             { menuOpen && !mediaQueries.xl && (

@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ModalCreateTask from './components/Utilities/ModalCreateTask';
 import { modalActions } from './store/modal.store';
 import { tasksActions } from './store/tasks.store';
+import Account from './components/Header/Account';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
         <TasksSection />   
       </main>
       <Footer />
+      <Account />
     </div>
   );
 }
