@@ -29,7 +29,7 @@ function App() {
   },[])
 
   return (
-    <div className="bg-slate-200 text-slate-00 dark:bg-slate-900 dark:text-slate-400">
+    <div className="bg-slate-200 text-slate-600 dark:bg-slate-900 dark:text-slate-400">
       { modal.modalCreateTaskOpen && (
         <ModalCreateTask
           onClose={closeModalCreateTask}
@@ -38,7 +38,7 @@ function App() {
         />
       )}
       <Menu />
-      <main className="xl:ml-64 min-h-screen bg-slate-200">
+      <main className="xl:ml-64 min-h-screen bg-slate-200 dark:bg-slate-900 dark:text-slate-400">
         <Header />
         <TasksSection />   
       </main>

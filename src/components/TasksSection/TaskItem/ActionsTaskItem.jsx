@@ -10,7 +10,7 @@ const ActionsTaskItem = ({ task, isListInView1 }) => {
 
     return(
         <>
-            <div className={`flex border-dashed border-salte-200 ${isListInView1 
+            <div className={`flex border-dashed border-salte-200 dark:border-slate-700/[.3] ${isListInView1 
             ? 'items-center' 
             : 'border-t-2 w-full pt-4 mt-4'}`}>
                 <BtnToggleCompleted task={task} isListInView1={isListInView1} />

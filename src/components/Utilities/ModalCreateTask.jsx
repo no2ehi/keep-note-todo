@@ -12,7 +12,7 @@ const InputCheckBox = ({ label, isChecked, setChecked}) => {
 
     return(
         <label className="mb-0 flex items-center cursor-pointer">
-            <div className="mr-2 bg-slate-300/[0.5] w-5 h-5 rounded-full grid place-items-center border border-slate-300">
+            <div className="mr-2 bg-slate-300/[0.5] w-5 h-5 rounded-full grid place-items-center border border-slate-300 dark:bg-slate-800 dark:border-slate-700">
                 {isChecked && (
                     <span className="bg-rose-500 w-2 h-2 block rounded-full"></span>
                 )}
@@ -179,7 +179,9 @@ const ModalCreateTask = ({ onClose, task, nameForm, onConfirm }) => {
                             value={label}
                         >
                             {labels.map((label) => (
-                                <option value={label} key={label}>{label}</option>
+                                <option value={label} key={label} className="bg-slate-100 dark:bg-slate-800">
+                                    {label}
+                                </option>
                             ))}
                         </select>
                     </label>

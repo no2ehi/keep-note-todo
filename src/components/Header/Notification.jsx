@@ -38,10 +38,10 @@ const Notification = () => {
                 <BellIcon className="w-7 h-7 fill-violet-800"/>
             </button>
             { notificationIsVisible && (
-                <div className="absolute top-full right-0 bg-slate-100 rounded-md p-3 w-52 border border-slate-300">
+                <div className="absolute top-full right-0 bg-slate-100 rounded-md p-3 w-52 border border-slate-300 dark:bg-slate-800 dark:border-slate-700">
                     {uncompletedTasks.length > 0 ? (
                         <div>
-                            <span className="font-medium">
+                            <span className="font-medium dark:text-slate-200">
                                 You have {uncompletedTasks.length} uncompleted tasks today:
                             </span>
                             <ul>

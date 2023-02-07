@@ -37,8 +37,8 @@ const LayoutRoutes = ({ title, tasks }) => {
         {pinnedTasks.length > 0 && (
           <>
           <div className="mb-4 sm:mb-1 flex sm:justify-start items-center ">
-            <PinFillIcon className="w-6 h-6 " />
-            <h2 className="font-bold text-xl">
+            <PinFillIcon className="w-6 h-6 fill-slate-800 dark:fill-slate-400" />
+            <h2 className="font-bold text-xl dark:text-slate-200">
             Pinned { pinnedTasks.length > 1 ? 'Tasks' : 'Task'}
             </h2>
           </div>
@@ -57,7 +57,7 @@ const LayoutRoutes = ({ title, tasks }) => {
           
 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
-              <h1 className="font-bold text-2xl">{taskTitle}</h1>
+              <h1 className="font-bold text-2xl dark:text-slate-200">{taskTitle}</h1>
               <ButtonsSort
                   isListInView1={isListInView1}
                   setIsListInView1={setIsListInView1}

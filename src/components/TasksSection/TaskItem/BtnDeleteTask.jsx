@@ -24,7 +24,7 @@ const BtnDeleteTask = ({ taskId }) => {
                     onConfirm={deleteTaskHandler}
                     />
             )}
-            <button className="transition ml-2 hover:text-slate-700"
+            <button className="transition ml-2 hover:text-slate-700 dark:hover:text-slate-200"
                 onClick={() => setShowModal(true)}>
                 <Trash className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>

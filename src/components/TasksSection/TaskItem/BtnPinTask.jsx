@@ -18,7 +18,7 @@ const BtnPinTask = ({ taskId, taskPinned }) => {
             onClick={toggleMakrAsImportant}
                 className="ml-2 transition hover:text-slate-700">
             <PinFillIcon
-                className={`w-4 h-4 sm:w-5 sm:h-5 ${taskPinned ? 'fill-black' : 'fill-none stroke-black'}`} />
+                className={`w-4 h-4 sm:w-5 sm:h-5 hover:text-slate-700 dark:hover:text-slate-200 ${taskPinned ? 'fill-slate-600 dark:fill-slate-400' : 'fill-none stroke-slate-600 dark:stroke-slate-400'}`} />
         </button>
     )
 }

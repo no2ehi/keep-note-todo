@@ -56,7 +56,7 @@ const ItemLabel = ({ label, classLinkActive }) => {
                 <NavLink 
                     to={`/label/${label}`}
                     title={label}
-                    className="hover:text-rose-600 transition"
+                    className="hover:text-rose-600 transition dark:hover:text-slate-200 transition text-ellipsis whitespace-nowrap overflow-hidden max-w-[7rem]"
                     > 
                     {label}
                 </NavLink>

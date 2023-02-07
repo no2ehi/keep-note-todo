@@ -12,10 +12,10 @@ const ModalContent = ({ children, onClose, title }) => {
     }
 
     return(
-        <div className="w-full h-full fixed grid place-items-center bg-slate-600/[.2] px-2 z-40"
+        <div className="w-full h-full fixed grid place-items-center bg-slate-600/[.2] px-2 z-40 dark:text-slate-200"
             onClick={closeModalHandler} >
 
-            <section className="flex flex-col justify-start relative max-w-lg w-full rounded-lg p-3 bg-slate-200">
+            <section className="flex flex-col justify-start relative max-w-lg w-full rounded-lg p-3 bg-slate-200 dark:bg-slate-900">
                 <button 
                     onClick={onClose}
                     aria-label="close alert" 

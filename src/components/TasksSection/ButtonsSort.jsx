@@ -31,7 +31,7 @@ const ButtonsSort = ({ isListInView1, sortedBy, setSortedBy, setIsListInView1 })
                     <option
                         key={val.value}
                         value={val.value}
-                        className="bg-slate-100"
+                        className="bg-slate-100 dark:bg-slate-800"
                     >
                         {val.title}
                     </option>

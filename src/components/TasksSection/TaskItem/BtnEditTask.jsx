@@ -24,7 +24,7 @@ const BtnEditTask = ({ task }) => {
             />
         )}
         <button
-            className="transition w-7 h-6 sm:w-8 sm:h-8 grid place-items-center hover:text-slate-700"
+            className="transition w-7 h-6 sm:w-8 sm:h-8 grid place-items-center hover:text-slate-700 dark:hover:text-slate-200"
             onClick={() => setShowModal(true)} >
             <OptionsSvg className="w-5 h-5 sm:w-6 sm:h-6"/>
         </button>

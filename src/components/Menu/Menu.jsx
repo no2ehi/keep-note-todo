@@ -14,7 +14,7 @@ const Menu = () => {
         dispatch(menusActions.closeMenu())
     }
 
-    const classLinkActive = "text-rose-600 bg-violet-100 border-r-4 border-rose-500 ";
+    const classLinkActive = "text-rose-600 bg-violet-100 border-r-4 border-rose-500 dark:bg-slate-700/[.2] dark:text-slate-200 dark:border-slate-200";
 
     return(
         <LayoutMenus
@@ -23,7 +23,7 @@ const Menu = () => {
             className="left-0"
         >        
 
-            <h1 className="flex justify-center pt-10 text-slate-600 font-bold text-xl">Keep Note Todo</h1>
+            <h1 className="flex justify-center pt-10 text-slate-600 font-bold text-xl dark:text-slate-400">Keep Note Todo</h1>
 
             <NavLinks classLinkActive={classLinkActive} />
             <Labels classLinkActive={classLinkActive} />

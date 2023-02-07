@@ -11,7 +11,7 @@ const ItemSearch = ({ task }) => {
         <li key={task.id} className="py-2">
             <Link
                 to={`/task/${task.id}`}
-                className="flex justify-between tansition hover:text-rose-500"
+                className="flex justify-between tansition hover:text-rose-500 dark:hover:text-slate-200"
             >
                 <span>{task.title}</span>
                 <span>{task.date}</span>
@@ -69,7 +69,7 @@ const SearchField = () => {
                      />
                 <SearchIcon className="sm:w-5 w-4 absolute right-4 top-3.5 " />
                 { listResultsVisible && (
-                    <div className="absolute bg-slate-100 rounded-md w-full top-14 p-3 z-10">
+                    <div className="absolute bg-slate-100 rounded-md w-full top-14 p-3 dark:bg-slate-800 z-10">
                         {tasks.length ? (
                             <>
                                 <ul>
@@ -79,7 +79,7 @@ const SearchField = () => {
                                 </ul>
                                 <button
                                     onClick={navigateToSearchResults}
-                                    className="bg-rose-100 w-full p-2 rounded-md text-rose-600">
+                                    className="bg-rose-100 w-full p-2 rounded-md text-rose-600 dark:bg-slate-700/[.3] dark:text-slate-200">
                                     All resuslts for "{searchInputValue}"
                                 </button>
                             </>

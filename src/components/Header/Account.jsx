@@ -50,7 +50,7 @@ const Account = () => {
         <ul className="mt-5">
             {links.map((link, i) => (
                 <li key={i} 
-                    className="px-4 py-2 border-b hover:bg-slate-200">{link.title}</li>
+                    className="px-4 py-2 hover:bg-slate-200 cursor-pointer dark:hover:bg-slate-900">{link.title}</li>
             ))}
         </ul>
         </LayoutMenusAccount>

@@ -11,7 +11,7 @@ const TaskItem = ({ isListInView1, task }) => {
                 <Link
                     to={`/label/${task.label}`}
                     title={task.label}
-                    className="ml-auto mr-4 w-min whitespace-nowrap overflow-hidden max-w-[10rem] text-center bg-rose-200 text-rose-600 px-4 py-1 rounded-t-md transition block hover:bg-rose-300"
+                    className="ml-auto mr-4 w-min whitespace-nowrap overflow-hidden max-w-[10rem] text-center text-ellipsis bg-rose-200 text-rose-600 px-4 py-1 rounded-t-md transition dark:bg-slate-700 dark:text-slate-200 block hover:bg-rose-300 dark:hover:bg-rose-500"
                     >
                         {task.label}
                 </Link>
